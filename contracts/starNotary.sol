@@ -11,8 +11,8 @@ contract StarNotary is ERC721 {
     /**
      * Add a name and a symbol for your starNotary tokens
      */
-    string public name = "ERC721Name";
-    string public symbol = "ERC721Token";
+    string public name = "mytoken";
+    string public symbol = "mysymbol";
 
     mapping(uint256 => Star) public tokenIdToStarInfo;
     mapping(uint256 => uint256) public starsForSale;
