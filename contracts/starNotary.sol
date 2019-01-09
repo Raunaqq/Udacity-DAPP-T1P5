@@ -11,8 +11,8 @@ contract StarNotary is ERC721 {
     /**
      * Add a name and a symbol for your starNotary tokens
      */
-    string public tokenName = "myERC721Token";
-    string public tokenSymbol = "myERC721TokenSymbol";
+    string public name = "ERC721Name";
+    string public symbol = "ERC721Token";
 
     mapping(uint256 => Star) public tokenIdToStarInfo;
     mapping(uint256 => uint256) public starsForSale;
@@ -79,8 +79,7 @@ contract StarNotary is ERC721 {
      */
      function transferStar(address _to, uint256 _tokenId) public payable {
          require(ownerOf(_tokenId) != _to);
-         _removeTokenFrom(msg.sender, _tokenId);
-         _addTokenTo(_to, _tokenId);
+         safeTransferFrom(msg.sender, _to, _tokenId);
      }
 
 }
